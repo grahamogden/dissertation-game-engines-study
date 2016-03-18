@@ -5,22 +5,82 @@ CatsKids.GameColouring = function(game) {};
 
 CatsKids.GameColouring.prototype = {
 	create: function() {
-		this.background = this.add.sprite(0,0, 'background');
+		selfGame = this;
+		this.background = this.add.sprite(0,0, 'animalsBackground');
 		this.background.width = this.game.width;
 		this.background.height = this.game.height;
 
-        var tileGridX = (this.game.width) / 24;
-        var tileGridY = (this.game.height) / 16;
+        var tileGridX = (selfGame.game.width) / 24;
+        var tileGridY = (selfGame.game.height) / 16;
 
-		this.back = this.add.button(tileGridX * 2, tileGridY * 2, 'uiButtons', this.goMainMenu, this, 'back_down.png', 'back.png');
-		this.back.anchor.set(0.5);
-		this.back.onDownSound = audioCl;
-		this.back.onUpSound = audioIck;
+		bmd = selfGame.game.add.bitmapData(tileGridX * 22, selfGame.game.height);
+		bmd.backgroundColor = '#FFFFFF';
+		bmd.addToWorld();
+    	bmd.game.input.addMoveCallback(selfGame.paint, selfGame);
+
+		selfGame.back = selfGame.add.button(tileGridX * 2, tileGridY * 2, 'uiButtons', selfGame.goMainMenu, this, 'back_down.png', 'back.png');
+		selfGame.back.anchor.set(0.5);
+		selfGame.back.onDownSound = audioCl;
+		selfGame.back.onUpSound = audioIck;
+
+		brush = selfGame.game.make.sprite(0, 0, 'uiButtons');
+		brush.anchor.set(0.5);
+		brush.frameName = 'brush_white.png';
+
+        var graphics = selfGame.game.add.graphics(0, 0);
+	    graphics.beginFill(0x000000);
+        graphics.drawRect((tileGridX * 22 ), 0, (tileGridX * 2), selfGame.game.height);
+        graphics.alpha = 0.6;
+
+        colours = [
+        	'black',
+        	'blue',
+        	'brown',
+        	'orange',
+        	'yellow',
+        	'red',
+        	'purple',
+        	'pink',
+        	'green',
+        	'cyan',
+        	'navy',
+        	'white'
+        ];
+
+    	brushColours = [];
+
+        for(var i = 0; i < colours.length; i++) {
+			var brushColour = selfGame.add.button(tileGridX * 23, tileGridX * (i + 1), 'uiButtons', selfGame.colourPick, this, 'brush_' + colours[i] + '.png', 'brush_' + colours[i] + '.png');
+			brushColour.anchor.set(0.5);
+
+			if(i != (colours.length - 1) ) {
+				brushColour.scale.set(0.4);
+			} else {
+				brushColour.scale.set(0.6);
+			}
+
+			brushColours.push(brushColour);
+        }
+
+    	window.graphics = graphics;
 	},
-	update: function() {
-
+	colourPick: function(button) {
+		for(var i = 0; i < colours.length; i++) {
+			brushColours[i].scale.set(0.4);
+		}
+			button.scale.set(0.6);
+		brush.frameName = button.frameName;
 	},
 	goMainMenu: function() {
-		this.game.state.start('MainMenu');
+		bmd.destroy();
+		selfGame.game.state.start('MainMenu');
+	},
+	paint: function(pointer, x, y) {
+		console.log(pointer);
+		if (pointer.isDown) {
+			bmd.draw(brush, x, y);
+		}
+	},
+	update: function() {
 	}
 };
