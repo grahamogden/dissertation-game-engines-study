@@ -15,6 +15,11 @@ CatsKids.GameShapes.prototype = {
         tileGridY = (selfGame.game.height) / 16;
 
         //Drawing a grid for positioning
+
+        var graphics = this.game.add.graphics(0, 0);
+	    graphics.beginFill(0xFFFFFF);
+	    graphics.lineStyle(2, 0xFFFFFF, 1);
+	    
         for(var j = 0; j < 25; j++){
         	graphics.drawRect(((tileGridX * j)/* - 1*/), 0, 1, 1920);
         }
@@ -27,7 +32,6 @@ CatsKids.GameShapes.prototype = {
 		back.onDownSound = audioCl;
 		back.onUpSound = audioIck;
 
-		//
 		shapes = [
 			['circle', false],
 			['triangle', false],
@@ -51,10 +55,6 @@ CatsKids.GameShapes.prototype = {
     	var boundsHole = holeShape.getBounds();
 
 		if ( (shapeInformation[0] == holeShapeNumber) && (Phaser.Rectangle.intersects(boundsShape, boundsHole)) ) {
-				// selectedShape.x = selfGame.game.world.centerX;
-				// selectedShape.y = tileGridY * 12;
-				// selectedShape.scale.set(1.2);
-				// selectedShape.input.disableDrag();
 				selectedShape.kill();
 				holeShape.frameName = shapes[holeShapeNumber][0];
 				holeShape.scale.set(1.2);
@@ -74,9 +74,6 @@ CatsKids.GameShapes.prototype = {
 		selfGame.game.state.start(selfGame.game.state.current);
 	},
 	saveShapeInfo: function(selectedShape, pointer, shapeX, shapeY, shapeNumber) {
-		// console.log(shapeX);
-		// console.log(shapeY);
-		// console.log(shapeNumber);
 		shapeInformation = [shapeNumber, shapeX, shapeY];
 	},
 	setupGame: function () {
@@ -100,25 +97,5 @@ CatsKids.GameShapes.prototype = {
 	        shape.events.onDragStart.add(this.saveShapeInfo, this, null, shapeNumber);
 	        shape.events.onDragStop.add(this.fixLocation, this, null, shapeNumber);
 	    }
-
-		/*circle = this.add.sprite(tileGridX * 6, tileGridY * 4, 'shapes');
-		circle.frameName = 'circle';
-		circle.anchor.set(0.5);
-		triangle = this.add.sprite(tileGridX * 12, tileGridY * 4, 'shapes');
-		triangle.frameName = 'triangle';
-		triangle.anchor.set(0.5);
-		square = this.add.sprite(tileGridX * 18, tileGridY * 4, 'shapes');
-		square.frameName = 'square';
-		square.anchor.set(0.5);
-
-        circle.inputEnabled = true;
-        circle.input.enableDrag();
-        circle.events.onDragStop.add(this.fixLocation);
-        triangle.inputEnabled = true;
-        triangle.input.enableDrag();
-        triangle.events.onDragStop.add(this.fixLocation);
-        square.inputEnabled = true;
-        square.input.enableDrag();
-        square.events.onDragStop.add(this.fixLocation);*/
 	}
 };
