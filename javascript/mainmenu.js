@@ -89,13 +89,13 @@ CatsKids.MainMenu.prototype = {
 		this.game.state.start('GameColouring');
 	},
 	startGameMatch: function() {
-		this.game.state.start('GameShapes');
+		this.game.state.start('GameMatch');
 	},
 	startGameNumbers: function() {
 		this.game.state.start('GameNumbers');
 	},
 	startGameShapes: function() {
-		this.game.state.start('GameMatch');
+		this.game.state.start('GameShapes');
 	},
 	goLogin: function() {
 		this.game.state.start('Login');

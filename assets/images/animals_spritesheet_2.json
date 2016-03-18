@@ -1,0 +1,138 @@
+{"frames": {
+
+"chicken.png":
+{
+	"frame": {"x":0,"y":0,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"chicken_outline.png":
+{
+	"frame": {"x":410,"y":0,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"sheep_outline.png":
+{
+	"frame": {"x":820,"y":0,"w":630,"h":500},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":630,"h":500},
+	"sourceSize": {"w":630,"h":500},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"sheep.png":
+{
+	"frame": {"x":1460,"y":0,"w":630,"h":500},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":630,"h":500},
+	"sourceSize": {"w":630,"h":500},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"duck.png":
+{
+	"frame": {"x":2100,"y":0,"w":480,"h":500},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":500},
+	"sourceSize": {"w":480,"h":500},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"duck_outline.png":
+{
+	"frame": {"x":2590,"y":0,"w":480,"h":500},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":500},
+	"sourceSize": {"w":480,"h":500},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"pig.png":
+{
+	"frame": {"x":3080,"y":0,"w":900,"h":600},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":900,"h":600},
+	"sourceSize": {"w":900,"h":600},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"pig_outline.png":
+{
+	"frame": {"x":0,"y":610,"w":900,"h":600},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":900,"h":600},
+	"sourceSize": {"w":900,"h":600},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"dog_outline.png":
+{
+	"frame": {"x":910,"y":610,"w":650,"h":650},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":650,"h":650},
+	"sourceSize": {"w":650,"h":650},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"dog.png":
+{
+	"frame": {"x":1570,"y":610,"w":650,"h":650},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":650,"h":650},
+	"sourceSize": {"w":650,"h":650},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"horse_outline.png":
+{
+	"frame": {"x":2230,"y":610,"w":1070,"h":920},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1070,"h":920},
+	"sourceSize": {"w":1070,"h":920},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"horse.png":
+{
+	"frame": {"x":0,"y":1540,"w":1070,"h":920},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1070,"h":920},
+	"sourceSize": {"w":1070,"h":920},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"cow.png":
+{
+	"frame": {"x":1080,"y":1540,"w":1300,"h":950},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1300,"h":950},
+	"sourceSize": {"w":1300,"h":950},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"cow_outline.png":
+{
+	"frame": {"x":2390,"y":1540,"w":1300,"h":950},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1300,"h":950},
+	"sourceSize": {"w":1300,"h":950},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "animals_spritesheet_2.png",
+	"format": "RGBA8888",
+	"size": {"w":3990,"h":2490},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:37cbe149252fe562bba5c33a78993456:9695df0645ec6f913d7912c5bfc284d2:2bbb8441ba5514266d2298c26d81e78a$"
+}
+}

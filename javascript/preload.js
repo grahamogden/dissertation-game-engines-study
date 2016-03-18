@@ -17,8 +17,8 @@ CatsKids.Preload.prototype = {
 
 		this.load.image('background', 'assets/images/background.png');
 		this.load.image('animalsBackground', 'assets/images/animals_background.png');
-		this.load.atlas('uiButtons', 'assets/images/ui_spritesheet.png', 'assets/images/ui_spritesheet.json');
-		this.load.atlas('animals', 'assets/images/animals_spritesheet.png', 'assets/images/animals_spritesheet.json');
+		this.load.atlas('uiButtons', 'assets/images/ui_spritesheet_2.png', 'assets/images/ui_spritesheet_2.json');
+		this.load.atlas('animals', 'assets/images/animals_spritesheet_2.png', 'assets/images/animals_spritesheet_2.json');
 		this.load.atlas('shapes', 'assets/images/shapes_spritesheet.png', 'assets/images/shapes_spritesheet.json');
 		this.load.audio('audioAnimals', 'assets/audio/animals.mp3');
 		this.load.audio('audioCl', 'assets/audio/cl.mp3');

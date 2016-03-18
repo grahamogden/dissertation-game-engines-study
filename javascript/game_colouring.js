@@ -6,7 +6,7 @@ CatsKids.GameColouring = function(game) {};
 CatsKids.GameColouring.prototype = {
 	create: function() {
 		selfGame = this;
-		this.background = this.add.sprite(0,0, 'animalsBackground');
+		this.background = this.add.sprite(0,0, 'background');
 		this.background.width = this.game.width;
 		this.background.height = this.game.height;
 
@@ -25,6 +25,7 @@ CatsKids.GameColouring.prototype = {
 
 		brush = selfGame.game.make.sprite(0, 0, 'uiButtons');
 		brush.anchor.set(0.5);
+		brush.scale.set(0.5);
 		brush.frameName = 'brush_white.png';
 
         var graphics = selfGame.game.add.graphics(0, 0);
@@ -50,7 +51,7 @@ CatsKids.GameColouring.prototype = {
     	brushColours = [];
 
         for(var i = 0; i < colours.length; i++) {
-			var brushColour = selfGame.add.button(tileGridX * 23, tileGridX * (i + 1), 'uiButtons', selfGame.colourPick, this, 'brush_' + colours[i] + '.png', 'brush_' + colours[i] + '.png');
+			var brushColour = selfGame.add.button(tileGridX * 23, (selfGame.game.height / 13 * (i + 1) ), 'uiButtons', selfGame.colourPick, this, 'brush_' + colours[i] + '.png', 'brush_' + colours[i] + '.png');
 			brushColour.anchor.set(0.5);
 
 			if(i != (colours.length - 1) ) {
@@ -61,14 +62,13 @@ CatsKids.GameColouring.prototype = {
 
 			brushColours.push(brushColour);
         }
-
     	window.graphics = graphics;
 	},
 	colourPick: function(button) {
 		for(var i = 0; i < colours.length; i++) {
 			brushColours[i].scale.set(0.4);
 		}
-			button.scale.set(0.6);
+		button.scale.set(0.6);
 		brush.frameName = button.frameName;
 	},
 	goMainMenu: function() {
@@ -76,7 +76,6 @@ CatsKids.GameColouring.prototype = {
 		selfGame.game.state.start('MainMenu');
 	},
 	paint: function(pointer, x, y) {
-		console.log(pointer);
 		if (pointer.isDown) {
 			bmd.draw(brush, x, y);
 		}
