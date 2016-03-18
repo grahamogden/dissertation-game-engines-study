@@ -1,0 +1,57 @@
+{"frames": {
+"horse": {
+	"frame": {"x":0,"y":0,"w":1060,"h":900},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1060,"h":900},
+	"sourceSize": {"w":1060,"h":900}
+},
+"cow": {
+	"frame": {"x":0,"y":950,"w":1300,"h":930},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1300,"h":930},
+	"sourceSize": {"w":1300,"h":930}
+},
+"sheep": {
+	"frame": {"x":1070,"y":5,"w":630,"h":495},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":930,"h":495},
+	"sourceSize": {"w":930,"h":495}
+},
+"dog": {
+	"frame": {"x":1740,"y":5,"w":625,"h":625},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":625,"h":625},
+	"sourceSize": {"w":625,"h":625}
+},
+"pig": {
+	"frame": {"x":1300,"y":670,"w":895,"h":580},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":895,"h":580},
+	"sourceSize": {"w":895,"h":580}
+},
+"duck": {
+	"frame": {"x":1350,"y":1280,"w":450,"h":460},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":405,"h":460},
+	"sourceSize": {"w":405,"h":460}
+},
+"chicken": {
+	"frame": {"x":1850,"y":1280,"w":370,"h":390},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":300,"h":390},
+	"sourceSize": {"w":300,"h":390}
+}},
+"meta": {
+	"image": "animals_spritesheet.png",
+	"format": "RGBA8888",
+	"size": {"w":2500,"h":1900},
+	"scale": "1"
+}
+}
