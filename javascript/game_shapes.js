@@ -46,11 +46,6 @@ CatsKids.GameShapes.prototype = {
 
 	},
 	fixLocation: function(selectedShape) {
-		var lowerXlimit = selfGame.game.world.centerX - 300;
-		var upperXLimit = selfGame.game.world.centerX + 300;
-		var lowerYLimit = ( tileGridY * 12 ) - 300;
-		var upperYLimit = ( tileGridY * 12 ) + 300;
-
 		var boundsShape = selectedShape.getBounds();
     	var boundsHole = holeShape.getBounds();
 

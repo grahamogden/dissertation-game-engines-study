@@ -5,22 +5,71 @@ CatsKids.GameNumbers = function(game) {};
 
 CatsKids.GameNumbers.prototype = {
 	create: function() {
-		this.background = this.add.sprite(0,0, 'background');
-		this.background.width = this.game.width;
-		this.background.height = this.game.height;
+		selfGame = this;
+		selfGame.background = selfGame.add.sprite(0,0, 'background');
+		selfGame.background.width = selfGame.game.width;
+		selfGame.background.height = selfGame.game.height;
 
-        var tileGridX = (this.game.width) / 24;
-        var tileGridY = (this.game.height) / 16;
+        var tileGridX = (selfGame.game.width) / 24;
+        var tileGridY = (selfGame.game.height) / 16;
 
-		this.back = this.add.button(tileGridX * 2, tileGridY * 2, 'uiButtons', this.goMainMenu, this, 'back_down.png', 'back.png');
-		this.back.anchor.set(0.5);
-		this.back.onDownSound = audioCl;
-		this.back.onUpSound = audioIck;
+		selfGame.back = selfGame.add.button(tileGridX * 2, tileGridY * 2, 'uiButtons', selfGame.goMainMenu, selfGame, 'back_down.png', 'back.png');
+		selfGame.back.anchor.set(0.5);
+		selfGame.back.onDownSound = audioCl;
+		selfGame.back.onUpSound = audioIck;
+		
+		for(var i = 1; i <=3; i++) {
+			switch(i) {
+				case 1 :
+					var number = 'one';
+					break;
+				case 2 :
+					var number = 'two';
+					break;
+				case 3 :
+					var number = 'three';
+					break;
+			}
+			selfGame.numberButton = selfGame.add.button(tileGridX * 6 * i, tileGridY * 5, 'uiButtons', selfGame.numberClick, selfGame, number + '.png', number + '.png');
+			selfGame.numberButton.anchor.set(0.5);
+		}
+		
+        randomNumber = selfGame.game.rnd.integerInRange(1, 3);
+		for(var i = 0; i < randomNumber; i++) {
+			
+			var animal = selfGame.add.sprite((tileGridX * 6 * (i + 1)), tileGridY * 13, 'animals');
+			animal.frameName = 'duck.png';
+			animal.anchor.set(0.5);
+			animal.scale.set(0.4);
+		}
+		
+		
+		
+        var graphics = this.game.add.graphics(0, 0);
+	    graphics.beginFill(0xFFFFFF);
+	    graphics.lineStyle(2, 0xFFFFFF, 1);
+		for(var j = 0; j < 25; j++){
+        	graphics.drawRect(((tileGridX * j)/* - 1*/), 0, 1, 1920);
+        }
+        for(var j = 0; j < 20; j++){
+        	graphics.drawRect(0, ((tileGridY * j)/* - 1*/), 1920, 1);
+        }
+    	window.graphics = graphics;
+	},
+	goMainMenu: function() {
+		selfGame.game.state.start('MainMenu');
+	},
+	numberClick: function(one,two,three,four,five) {
+		console.log(one);
+		console.log(two);
+		console.log(three);
+		console.log(four);
+		console.log(five);
+	},
+	restartLevel: function () {
+		selfGame.game.state.start(selfGame.game.state.current);
 	},
 	update: function() {
 
-	},
-	goMainMenu: function() {
-		this.game.state.start('MainMenu');
 	}
 };
