@@ -9,14 +9,15 @@ CatsKids.MainMenu = function(game) {
 
 CatsKids.MainMenu.prototype = {
 	create: function() {
-		tileGridX = (this.game.width) / 24;
-    	tileGridY = (this.game.height) / 16;
+		selfGame = this;
+		tileGridX = (selfGame.game.width) / 24;
+    	tileGridY = (selfGame.game.height) / 16;
 
-		this.background = this.add.sprite(0,0, 'background');
-		this.background.width = this.game.width;
-		this.background.height = this.game.height;
+		selfGame.background = selfGame.add.sprite(0,0, 'background');
+		selfGame.background.width = selfGame.game.width;
+		selfGame.background.height = selfGame.game.height;
 
-        var graphics = this.game.add.graphics(0, 0);
+        var graphics = selfGame.game.add.graphics(0, 0);
 	    graphics.beginFill(0xFFFFFF);
 	    graphics.lineStyle(2, 0xFFFFFF, 1);
 
@@ -26,45 +27,60 @@ CatsKids.MainMenu.prototype = {
         // for(var j = 0; j < 20; j++){
         // 	graphics.drawRect(0, ((tileGridY * j)/* - 1*/), 1920, 1);
         // }
-		audioClick = this.game.add.audio('audioClick');
+		audioClick = selfGame.game.add.audio('audioClick');
 		audioClick.allowMultiple = true;
-		audioCl = this.game.add.audio('audioCl');
+		audioCl = selfGame.game.add.audio('audioCl');
 		audioCl.allowMultiple = true;
-		audioIck = this.game.add.audio('audioIck');
+		audioIck = selfGame.game.add.audio('audioIck');
 		audioIck.allowMultiple = true;
 
-		/*this.back = this.add.button(tileGridX * 2, tileGridY * 2, 'uiButtons', this.goLogin, this, 'back_down.png', 'back.png');
-		this.back.anchor.set(0.5);
-		this.back.onDownSound = audioCl;
-		this.back.onUpSound = audioIck;*/
-		this.settings = this.add.button(tileGridX * 22, tileGridY * 2, 'uiButtons', this.goSettings, this, 'settings_down.png', 'settings.png');
-		this.settings.anchor.set(0.5);
-		this.settings.onDownSound = audioCl;
-		this.settings.onUpSound = audioIck;
+		/*selfGame.back = selfGame.add.button(tileGridX * 2, tileGridY * 2, 'uiButtons', selfGame.goLogin, selfGame, 'back_down.png', 'back.png');
+		selfGame.back.anchor.set(0.5);
+		selfGame.back.onDownSound = audioCl;
+		selfGame.back.onUpSound = audioIck;*/
+		// selfGame.settings = selfGame.add.button(tileGridX * 22, tileGridY * 2, 'uiButtons', selfGame.goSettings, selfGame, 'settings_down.png', 'settings.png');
+		selfGame.settings = selfGame.add.sprite(tileGridX * 22, tileGridY * 2, 'uiButtons');
+		selfGame.settings.frameName = 'settings.png';
+		selfGame.settings.inputEnabled = true;
+		selfGame.settings.anchor.set(0.5);
+		selfGame.settings.onDownSound = audioCl;
+		selfGame.settings.onUpSound = audioIck;
+		selfGame.isSettingsPressed = false;
+		selfGame.settings.events.onInputDown.add(function() {
+			selfGame.isSettingsPressed = true;
+			selfGame.settings.frameName = 'settings_down_5.png';
+		}, selfGame);
+		settingsTimer = 0;
+		selfGame.settings.events.onInputUp.add(function() {
+			settingsTimer = 0;
+			selfGame.isSettingsPressed = false;
+			selfGame.settings.frameName = 'settings.png';
+		}, selfGame);
+
         var i = 0;
 
-		this.animalTile = this.add.button(getX(), getY(), 'uiButtons', this.startGameAnimals, this, 'tile_animals_down.png', 'tile_animals.png');
-		this.colouringTile = this.add.button(getX(), getY(), 'uiButtons', this.startGameColouring, this, 'tile_colouring_down.png', 'tile_colouring.png');
-		this.matchTile = this.add.button(getX(), getY(), 'uiButtons', this.startGameMatch, this, 'tile_match_down.png', 'tile_match.png');
-		this.numbersTile = this.add.button(getX(), getY(), 'uiButtons', this.startGameNumbers, this, 'tile_numbers_down.png', 'tile_numbers.png');
-		this.shapesTile = this.add.button(getX(), getY(), 'uiButtons', this.startGameShapes, this, 'tile_shapes_down.png', 'tile_shapes.png');
+		selfGame.animalTile = selfGame.add.button(getX(), getY(), 'uiButtons', selfGame.startGameAnimals, selfGame, 'tile_animals_down.png', 'tile_animals.png');
+		selfGame.colouringTile = selfGame.add.button(getX(), getY(), 'uiButtons', selfGame.startGameColouring, selfGame, 'tile_colouring_down.png', 'tile_colouring.png');
+		selfGame.matchTile = selfGame.add.button(getX(), getY(), 'uiButtons', selfGame.startGameMatch, selfGame, 'tile_match_down.png', 'tile_match.png');
+		selfGame.numbersTile = selfGame.add.button(getX(), getY(), 'uiButtons', selfGame.startGameNumbers, selfGame, 'tile_numbers_down.png', 'tile_numbers.png');
+		selfGame.shapesTile = selfGame.add.button(getX(), getY(), 'uiButtons', selfGame.startGameShapes, selfGame, 'tile_shapes_down.png', 'tile_shapes.png');
 
-		this.animalTile.anchor.set(0.5);
-		this.colouringTile.anchor.set(0.5);
-		this.matchTile.anchor.set(0.5);
-		this.numbersTile.anchor.set(0.5);
-		this.shapesTile.anchor.set(0.5);
+		selfGame.animalTile.anchor.set(0.5);
+		selfGame.colouringTile.anchor.set(0.5);
+		selfGame.matchTile.anchor.set(0.5);
+		selfGame.numbersTile.anchor.set(0.5);
+		selfGame.shapesTile.anchor.set(0.5);
 
-		this.animalTile.onDownSound = audioCl;
-		this.animalTile.onUpSound = audioIck;
-		this.colouringTile.onDownSound = audioCl;
-		this.colouringTile.onUpSound = audioIck;
-		this.matchTile.onDownSound = audioCl;
-		this.matchTile.onUpSound = audioIck;
-		this.numbersTile.onDownSound = audioCl;
-		this.numbersTile.onUpSound = audioIck;
-		this.shapesTile.onDownSound = audioCl;
-		this.shapesTile.onUpSound = audioIck;
+		selfGame.animalTile.onDownSound = audioCl;
+		selfGame.animalTile.onUpSound = audioIck;
+		selfGame.colouringTile.onDownSound = audioCl;
+		selfGame.colouringTile.onUpSound = audioIck;
+		selfGame.matchTile.onDownSound = audioCl;
+		selfGame.matchTile.onUpSound = audioIck;
+		selfGame.numbersTile.onDownSound = audioCl;
+		selfGame.numbersTile.onUpSound = audioIck;
+		selfGame.shapesTile.onDownSound = audioCl;
+		selfGame.shapesTile.onUpSound = audioIck;
 
 	    function getX() {
 	    	// console.log(( tileGridX * ( ( i % 3 ) * 6 ) + ( 6 * tileGridX ) ));
@@ -81,26 +97,36 @@ CatsKids.MainMenu.prototype = {
     	window.graphics = graphics;
 	},
 	update: function() {
+		if(selfGame.isSettingsPressed === true) {
+			settingsTimer++;
+			if( (settingsTimer % 60 == 0) ) {
+				selfGame.settings.frameName = 'settings_down_' + (5 - Math.floor(settingsTimer / 60) ) + '.png';
+				audioCl.play();
+			}
+			if(settingsTimer == 300) {
+				selfGame.goSettings();
+			}
+		}
 	},
 	startGameAnimals: function() {
-		this.game.state.start('GameAnimals');
+		selfGame.game.state.start('GameAnimals');
 	},
 	startGameColouring: function() {
-		this.game.state.start('GameColouring');
+		selfGame.game.state.start('GameColouring');
 	},
 	startGameMatch: function() {
-		this.game.state.start('GameMatch');
+		selfGame.game.state.start('GameMatch');
 	},
 	startGameNumbers: function() {
-		this.game.state.start('GameNumbers');
+		selfGame.game.state.start('GameNumbers');
 	},
 	startGameShapes: function() {
-		this.game.state.start('GameShapes');
+		selfGame.game.state.start('GameShapes');
 	},
 	goLogin: function() {
-		this.game.state.start('Login');
+		selfGame.game.state.start('Login');
 	},
-	goSettings: function() {
-		this.game.state.start('Settings');
+	goSettings: function(button) {
+		selfGame.game.state.start('Settings');
 	}
 };
