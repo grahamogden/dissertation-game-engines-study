@@ -13,7 +13,17 @@ define("BASEPATH", preg_replace("/(www)$/", "", getcwd()));
 spl_autoload_register('autoloader');
 function autoloader($class) {  require(BASEPATH."/classes/".$class.'.class.php');  }
 
-$page = new Template(BASEPATH."/templates/page.inc");
+switch($_GET['j']) {
+	case ('phaser') :
+		$page = new Template(BASEPATH."/templates/page-phaser.inc");
+		break;
+	case ('cocos') :
+		$pagge = new Template(BASEPATH."/templates/page-cocos.inc");
+		break;
+	default :
+		$page = new Template(BASEPATH."/templates/page.inc");
+		break;
+}
 
 $page->set("css-time", filemtime(BASEPATH."/css/main.css"));
 $page->set("title", "Childrens games");

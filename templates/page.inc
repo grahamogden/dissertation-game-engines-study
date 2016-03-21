@@ -18,29 +18,9 @@
 <body>
 	<div id="body_wrapper">
 		<div id="body_container">
-			[@bodyContent]
+			<h2>4 (D')Oh 4</h2>
+			<p>Sorry, you have not specified a JavaScript Game Engine Library that you wish to use.</p>
 		</div>
 	</div>
-	<script>
-	if(typeof(Storage) !== "undefined") {
-	    if(localStorage.getItem("name") !== "undefined" && localStorage.getItem("name") !== null && localStorage.getItem("age") !== NaN && localStorage.getItem("age") !== null && localStorage.getItem("age") !== undefined) {
-	    	$('#signup').remove();
-	    } else {
-	    	$('#signup').slideDown(400, 'linear');
-	    }
-	}
-	</script>
-<script src="/javascript/Phaser/phaser.js" type="text/javascript"></script>
-<script src="/javascript/boot.js" type="text/javascript"></script>
-<script src="/javascript/preload.js" type="text/javascript"></script>
-<script src="/javascript/login.js" type="text/javascript"></script>
-<script src="/javascript/mainmenu.js" type="text/javascript"></script>
-<script src="/javascript/settings.js" type="text/javascript"></script>
-<script src="/javascript/game_animals.js" type="text/javascript"></script>
-<script src="/javascript/game_colouring.js" type="text/javascript"></script>
-<script src="/javascript/game_shapes.js" type="text/javascript"></script>
-<script src="/javascript/game_numbers.js" type="text/javascript"></script>
-<script src="/javascript/game_match.js" type="text/javascript"></script>
-<script src="/javascript/master.js"></script>
 </body>
 </html>
