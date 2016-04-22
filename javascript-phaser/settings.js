@@ -13,8 +13,9 @@ CatsKids.Settings.prototype = {
 		deleteSavedData.anchor.set(0.5);
 	    deleteSavedData.inputEnabled = true;
 	    deleteSavedData.events.onInputUp.add(function () {
-			localStorage.removeItem("name");
-	        localStorage.removeItem("age");
+			// localStorage.removeItem("name");
+			// localStorage.removeItem("age");
+			localStorage.clear();
 	        setTimeout(function() {
 	        	alert('Deleted your saved data.');
 	        }, 600);

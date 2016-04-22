@@ -18,7 +18,24 @@
 <body>
 	<div id="body_wrapper">
 		<div id="body_container">
-			[@bodyContent]
+			<div id="signup">
+				<form name="signupForm" onsubmit="return saveToStorage()" method="POST">
+					<label>Type in a nickname:</label>
+					<input id="name" name="name" type="text" />
+					<label>Enter the child's age:</label>
+					<select name="age">
+						<option disabled selected>Age</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
+					<input type="image" src="/assets/images/save_and_continue.png" alt="Save and Continue"/>
+				</form>
+			</div>
+			<canvas id="game_canvas" width="1920" height="1080">
+				Your browser does not support canvas! Sorry, you cannot play this game!
+			</canvas>
 		</div>
 	</div>
 	<script>
@@ -30,17 +47,9 @@
 	    }
 	}
 	</script>
-<script src="/javascript/Phaser/phaser.js" type="text/javascript"></script>
-<script src="/javascript/boot.js" type="text/javascript"></script>
-<script src="/javascript/preload.js" type="text/javascript"></script>
-<script src="/javascript/login.js" type="text/javascript"></script>
-<script src="/javascript/mainmenu.js" type="text/javascript"></script>
-<script src="/javascript/settings.js" type="text/javascript"></script>
-<script src="/javascript/game_animals.js" type="text/javascript"></script>
-<script src="/javascript/game_colouring.js" type="text/javascript"></script>
-<script src="/javascript/game_shapes.js" type="text/javascript"></script>
-<script src="/javascript/game_numbers.js" type="text/javascript"></script>
-<script src="/javascript/game_match.js" type="text/javascript"></script>
-<script src="/javascript/master.js"></script>
+<script src="/javascript-cocos/cocos2d-js-v3.10-lite.js" type="text/javascript"></script>
+<script src="/javascript-cocos/game-manager.js" type="text/javascript"></script>
+<script src="/javascript-cocos/game.js" type="text/javascript"></script>
+<script src="/javascript-cocos/main.js" type="text/javascript"></script>
 </body>
 </html>

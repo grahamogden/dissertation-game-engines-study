@@ -13,16 +13,32 @@ define("BASEPATH", preg_replace("/(www)$/", "", getcwd()));
 spl_autoload_register('autoloader');
 function autoloader($class) {  require(BASEPATH."/classes/".$class.'.class.php');  }
 
-switch($_GET['j']) {
-	case ('phaser') :
-		$page = new Template(BASEPATH."/templates/page-phaser.inc");
-		break;
-	case ('cocos') :
-		$pagge = new Template(BASEPATH."/templates/page-cocos.inc");
-		break;
-	default :
-		$page = new Template(BASEPATH."/templates/page.inc");
-		break;
+if(isset($_GET['j'])) {
+	switch($_GET['j']) {
+		case ('phaser') :
+			$page = new Template(BASEPATH."/templates/page-phaser.inc");
+			break;
+		case ('cocos') :
+			$page = new Template(BASEPATH."/templates/page-cocos.inc");
+			break;
+		case ('turbulenz') :
+			$page = new Template(BASEPATH."/templates/page-turbulenz.inc");
+			break;
+		case ('kiwi') :
+			$page = new Template(BASEPATH."/templates/page-kiwi.inc");
+			break;
+		case ('crafty') :
+			$page = new Template(BASEPATH."/templates/page-crafty.inc");
+			break;
+		case ('melon') :
+			$page = new Template(BASEPATH."/templates/page-melon.inc");
+			break;
+		default :
+			$page = new Template(BASEPATH."/templates/page.inc");
+			break;
+	}
+} else {
+	$page = new Template(BASEPATH."/templates/page.inc");
 }
 
 $page->set("css-time", filemtime(BASEPATH."/css/main.css"));

@@ -36,6 +36,7 @@ CatsKids.GameNumbers.prototype = {
 			selfGame.numberButton.anchor.set(0.5);
 			numberButtons.push(selfGame.numberButton);
 		}
+		//To prevent the same number from appearing twice in a row
 		if(typeof randomNumber !== "undefined") {
 			var tempRandomNumber;
 			do {
@@ -83,9 +84,9 @@ CatsKids.GameNumbers.prototype = {
 				break;
 		}
 		if(chosenNumber == randomNumber) {
-		    var s = selfGame.game.add.tween(numberButtons[randomNumber-1].scale);
-		    s.to({x: 1.5, y:1.5}, 600, Phaser.Easing.Linear.None);
-		    s.start();
+		    var tween = selfGame.game.add.tween(numberButtons[randomNumber-1].scale);
+		    tween.to({x: 1.5, y:1.5}, 600, Phaser.Easing.Linear.None);
+		    tween.start();
 
 			setTimeout(function() {
 				selfGame.restartLevel();

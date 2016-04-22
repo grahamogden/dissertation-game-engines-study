@@ -12,6 +12,8 @@ CatsKids.MainMenu.prototype = {
 		selfGame = this;
 		tileGridX = (selfGame.game.width) / 24;
     	tileGridY = (selfGame.game.height) / 16;
+    	console.log(tileGridX);
+    	console.log(tileGridY);
 
 		selfGame.background = selfGame.add.sprite(0,0, 'background');
 		selfGame.background.width = selfGame.game.width;
@@ -83,14 +85,15 @@ CatsKids.MainMenu.prototype = {
 		selfGame.shapesTile.onUpSound = audioIck;
 
 	    function getX() {
-	    	// console.log(( tileGridX * ( ( i % 3 ) * 6 ) + ( 6 * tileGridX ) ));
+	    	console.log( tileGridX * ( ( i % 3 ) * 6 ) + ( 6 * tileGridX ) );
 	        return ( tileGridX * ( ( i % 3 ) * 6 ) + ( 6 * tileGridX ) );
+	        
 	    }
 
 	    function getY() {
 	    	// Calculate each row for every three tiles
 	        var j = Math.floor(i / 3) + 1;
-	    	// console.log((tileGridY * (6 * j) ));
+	    	console.log((tileGridY * (6 * j) ));
 	        i = i + 1;
 	        return (tileGridY * (6 * j) );
 	    }

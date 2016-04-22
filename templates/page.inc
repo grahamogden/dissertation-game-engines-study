@@ -20,6 +20,12 @@
 		<div id="body_container">
 			<h2>4 (D')Oh 4</h2>
 			<p>Sorry, you have not specified a JavaScript Game Engine Library that you wish to use.</p>
+			<p><a href="?j=phaser">Phaser</a></p>
+			<p><a href="?j=cocos">Cocos2D-JS/HTML</a></p>
+			<p><a href="?j=turbulenz">Turbulenz</a></p>
+			<p><a href="?j=kiwi">Kiwi.js</a></p>
+			<p><a href="?j=crafty">Crafty.js</a></p>
+			<p><a href="?j=melon">Melon.js</a></p>
 		</div>
 	</div>
 </body>
